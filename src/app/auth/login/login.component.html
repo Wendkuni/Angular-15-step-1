@@ -1,0 +1,47 @@
+<div class="flex">
+  <div class="m-auto">
+    <mat-card>
+      <mat-card-title><h1>Login here, if you have a count</h1></mat-card-title>
+      <mat-card-subtitle > Enter your email and your password</mat-card-subtitle>
+      <form action="">
+        <mat-card-content>
+          <mat-form-field>
+            <mat-label>Enter your email</mat-label>
+            <input
+              matInput
+              placeholder="myEmail@example.com"
+              type="email"
+              required
+            />
+          </mat-form-field>
+          <mat-divider></mat-divider>
+          <mat-form-field>
+            <mat-label>Enter your password </mat-label>
+            <input
+              matInput
+              [type]="hide ? 'password' : 'text'"
+              type="password"
+              required
+            />
+            <button
+              mat-icon-button
+              matSuffix
+              (click)="hide = !hide"
+              [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide"
+            >
+              <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+            </button>
+          </mat-form-field>
+        </mat-card-content>
+      </form>
+      <mat-divider></mat-divider>
+      <mat-card-actions>
+        <button (click)="login()" type="submit">
+          <mat-spinner *ngIf="Loading" diameter="25"></mat-spinner>
+          <span *ngIf="!Loading">conexion</span>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
